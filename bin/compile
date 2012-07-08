@@ -14,6 +14,9 @@ CACHE_DIR=$2
 
 GRAILS_DIR=".grails"
 
+echo "running apt-get update"
+apt-get update
+
 #Lets attempt to install the opencv binaries
 echo "Installing video capute libraries"
 apt-get install libavformat-dev libswscale-dev

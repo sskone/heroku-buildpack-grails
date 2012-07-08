@@ -134,4 +134,15 @@ if [ ! -d server ] ; then
     echo "vendored:$JETTY_RUNNER_VERSION" > $CACHE_DIR/jettyVersion
 fi
 
+#Lets attempt to install the opencv binaries
+echo "Installing video capute libraries"
+sudo apt-get install libavformat-dev libswscale-dev 
 
+echo "getting the opencv binaries"
+echo "adding new apt repository ppa:gijzelaar/opencv2 "
+add-apt-repository ppa:gijzelaar/opencv2
+echo "running apt-get update"
+apt-get update
+echo "attempting to install opencv"
+apt-get install opencv
+echo "Attempt to install opencv completed"

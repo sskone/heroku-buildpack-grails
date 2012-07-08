@@ -136,10 +136,10 @@ if [ ! -d server ] ; then
 fi
 
 mktmpdir() {
-  dir=$(mktemp -t fakesu-$1-XXXX)
-  rm -rf $dir
-  mkdir -p $dir
-  echo $dir
+  dir=$(mktemp -t fakesu-$1-XXXX)
+  rm -rf $dir
+  mkdir -p $dir
+  echo $dir
 }
 
 function indent() {
@@ -219,6 +219,7 @@ ln -s ../ app
 mkdir -p $BUILD_DIR/bin
 cp $BUILDPACK_DIR/bin/fakesu $BUILD_DIR/bin
 cp $BUILDPACK_DIR/bin/aws $BUILD_DIR/bin
+
 
 #Lets attempt to install the opencv binaries
 echo "Installing video capute libraries"

@@ -143,11 +143,11 @@ mktmpdir() {
 }
 
 function indent() {
-  c='s/^/       /'
-  case $(uname) in
-    Darwin) sed -l "$c";;
-    *)      sed -u "$c";;
-  esac
+  c='s/^/       /'
+  case $(uname) in
+    Darwin) sed -l "$c";;
+    *)      sed -u "$c";;
+  esac
 }
 
 BUILDPACK_DIR=`cd $(dirname $0); cd ..; pwd`

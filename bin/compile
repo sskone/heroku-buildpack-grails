@@ -136,7 +136,7 @@ fi
 
 #Lets attempt to install the opencv binaries
 echo "Installing video capute libraries"
-apt-get install libavformat-dev libswscale-dev 
+#apt-get install libavformat-dev libswscale-dev 
 
 echo "getting the opencv binaries"
 echo "adding new apt repository ppa:gijzelaar/opencv2 "

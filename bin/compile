@@ -17,16 +17,16 @@ cmake_tar_dir="cmake-${cmake_version}"
   mkdir -p ${BUILD_DIR}/cmake
   cd $BUILD_DIR/cmake
 
-  echo "Compiling cmake v${cmake_version}..." | indent
-  #Compile cmake
-  curl -s ${cmake_url} > ${cmake_file}
-  tar zxf ${cmake_file}
-  cd ${cmake_tar_dir}
-  ./bootstrap --prefix=${target} | indent
-  make | indent
-  make install | indent
-  PATH=${target}/bin:$PATH
-  cd ../..
+echo "Compiling cmake v${cmake_version}..."
+#Compile cmake
+curl -s ${cmake_url} > ${cmake_file}
+tar zxf ${cmake_file}
+cd ${cmake_tar_dir}
+./bootstrap --prefix=${target} | indent
+make
+make install
+PATH=${target}/bin:$PATH
+cd ../..
 
 # source in common functions
 . $BIN_DIR/common.sh

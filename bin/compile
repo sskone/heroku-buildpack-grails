@@ -4,6 +4,10 @@
 # fail fast
 set -e
 
+indent() {
+  sed -u 's/^/       /'
+}
+
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 # parse args
 BUILD_DIR=$1
@@ -14,19 +18,19 @@ cmake_url="http://www.cmake.org/files/v2.8/cmake-${cmake_version}.tar.gz"
 cmake_file="cmake-${cmake_version}.tar.gz"
 cmake_tar_dir="cmake-${cmake_version}"
 
-  mkdir -p ${BUILD_DIR}/cmake
-  cd $BUILD_DIR/cmake
+cd $BUILD_DIR
 
-echo "Compiling cmake v${cmake_version}..."
-#Compile cmake
-curl -s ${cmake_url} > ${cmake_file}
-tar zxf ${cmake_file}
-cd ${cmake_tar_dir}
-./bootstrap --prefix=${target}
-make
-make install
-PATH=${target}/bin:$PATH
-cd ../..
+  echo "Compiling cmake v${cmake_version}..." | indent
+  #Compile cmake
+  curl -s ${cmake_url} > ${cmake_file}
+  tar zxf ${cmake_file}
+  cd ${cmake_tar_dir}
+  ./bootstrap --prefix=${target} | indent
+  make | indent
+  make install | indent
+  PATH=${target}/bin:$PATH
+  cd ..
+
 
 # source in common functions
 . $BIN_DIR/common.sh

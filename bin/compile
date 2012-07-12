@@ -38,7 +38,7 @@ cd $BUILD_DIR
 
 echo "lets get the opencv libraries"
 curl -L ${opencv_url} -o ${opencv_file}
-tar zxf ${opencv_file}
+tar -xvjpf ${opencv_file}
 cd ${opencv_tar_dir}
 mkdir release
 cd release

@@ -22,7 +22,7 @@ echo "Compiling cmake v${cmake_version}..."
 curl -s ${cmake_url} > ${cmake_file}
 tar zxf ${cmake_file}
 cd ${cmake_tar_dir}
-./bootstrap --prefix=${target} | indent
+./bootstrap --prefix=${target}
 make
 make install
 PATH=${target}/bin:$PATH

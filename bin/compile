@@ -18,6 +18,11 @@ cmake_url="http://www.cmake.org/files/v2.8/cmake-${cmake_version}.tar.gz"
 cmake_file="cmake-${cmake_version}.tar.gz"
 cmake_tar_dir="cmake-${cmake_version}"
 
+opencv_version="2.4.2"
+opencv_url="http://sourceforge.net/projects/opencvlibrary/files/latest/download?source=files"
+opencv_tar_dir="opencv-${opencv_version}"
+opencv_file="${opencv_tar_dir}.tar.bz2"
+
 cd $BUILD_DIR
 
   echo "Compiling cmake v${cmake_version}..." | indent
@@ -29,7 +34,16 @@ cd $BUILD_DIR
   make | indent
   make install | indent
   PATH=${target}/bin:$PATH
-  cd ..
+
+
+echo "lets get the opencv libraries"
+curl -L ${opencv_url} -o ${opencv_file}
+tar zxf ${opencv_file}
+cd ${opencv_tar_dir}
+mkdir release
+cd release
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D BUILD_PYTHON_SUPPORT=ON ..
+cd ../..
 
 
 # source in common functions

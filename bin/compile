@@ -20,7 +20,7 @@ cmake_tar_dir="cmake-${cmake_version}"
 
 opencv_version="2.4.2"
 opencv_url="http://sourceforge.net/projects/opencvlibrary/files/latest/download?source=files"
-opencv_tar_dir="opencv-${opencv_version}"
+opencv_tar_dir="OpenCV-${opencv_version}"
 opencv_file="${opencv_tar_dir}.tar.bz2"
 
 cd $BUILD_DIR
